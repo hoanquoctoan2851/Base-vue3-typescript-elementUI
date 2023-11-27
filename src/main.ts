@@ -9,10 +9,10 @@ import App from './App.vue';
 
 async function bootstrap() {
   const app = createApp(App);
-  setupStore(app);
-  await setupI18n(app);
   app.use(ElementPlus);
   app.use(router);
+  setupStore(app);
+  await setupI18n(app);
   app.mount('#app');
 }
 bootstrap();

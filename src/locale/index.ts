@@ -3,14 +3,15 @@ import { locale_en } from './modules/en';
 import { locale_vi } from './modules/vi';
 import type { LocaleItemType, LocaleType } from '@/locale/model';
 import type { App } from 'vue';
+
 export const LIST_SELECT_LOCALE: LocaleItemType[] = [
   {
     value: 'vi-VN',
-    label: 'Việt Nam'
+    label: 'common.lang.country.vietnames'
   },
   {
     value: 'en-US',
-    label: 'English'
+    label: 'common.lang.country.english'
   }
 ];
 

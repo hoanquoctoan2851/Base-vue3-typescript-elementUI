@@ -1,16 +1,18 @@
 import { store } from '@/stores';
 import { defineStore } from 'pinia';
-import type { LocaleType } from '@/locale/model';
+import type { LocaleItemType } from '@/locale/model';
+import { LIST_SELECT_LOCALE } from '@/locale';
+
 interface LocaleState {
-  locale: LocaleType;
+  locale: LocaleItemType | null;
 }
 export const localeStores = defineStore({
   id: 'localeStores',
   state: (): LocaleState => ({
-    locale: 'vi-VN'
+    locale: LIST_SELECT_LOCALE[0]
   }),
   actions: {
-    setLocale(locale: LocaleType) {
+    setLocale(locale: LocaleItemType) {
       this.locale = locale;
     }
   }
