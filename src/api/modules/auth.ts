@@ -4,6 +4,6 @@ function login(data: any) {
   return requestHttp({
     url: '/login',
     method: 'POST',
-    data: data
+    data: data,
   });
 }

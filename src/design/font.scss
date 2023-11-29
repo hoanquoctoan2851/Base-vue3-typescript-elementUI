@@ -1,0 +1,46 @@
+@mixin font-size($size, $line-height: null) {
+  font-size: $size + px;
+  @if $line-height {
+    line-height: $line-height + px;
+  }
+}
+
+.text-heading-76 {
+  @include font-size(76);
+}
+
+.text-heading-48 {
+  @include font-size(48);
+}
+
+.text-heading-36 {
+  @include font-size(36);
+}
+
+.text-heading-32 {
+  @include font-size(32);
+}
+
+.text-heading-24 {
+  @include font-size(24);
+}
+
+.text-body-20 {
+  @include font-size(20);
+}
+
+.text-body-18 {
+  @include font-size(18);
+}
+
+.text-body-16 {
+  @include font-size(16);
+}
+
+.text-body-14 {
+  @include font-size(14, 20);
+}
+
+.text-body-12 {
+  @include font-size(12);
+}

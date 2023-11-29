@@ -1,20 +1,35 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router';
-import { defineAsyncComponent } from 'vue';
-// const ChangeLocale = () => import('@/components/applications/ChangeLocale.vue')
-const ChangeLocale = defineAsyncComponent(
-  () => import('@/components/applications/ChangeLocale.vue')
-);
+<script lang="ts">
+import { computed } from 'vue';
+import { RouterView } from 'vue-router';
+import { localeStores } from './stores/modules/localeStores';
+//@ts-ignore
+import vi from 'element-plus/dist/locale/vi.js';
+//@ts-ignore
+import en from 'element-plus/dist/locale/en.js';
+export default {
+  name: 'App',
+  components: { RouterView },
+  setup() {
+    const locale = computed(() => {
+      return localeStores().getLocale;
+    });
+
+    const listLocale = {
+      en: en,
+      vi: vi,
+    };
+
+    return {
+      locale,
+      listLocale,
+      vi,
+      en,
+    };
+  },
+};
 </script>
 <template>
-  <header>
-    <div class="wrapper">
-      <nav>
-        <p class="text-5xl">{{ $t('test.name') }}</p>
-        <ChangeLocale></ChangeLocale>
-        <RouterLink to="/about">about</RouterLink>
-      </nav>
-    </div>
-  </header>
-  <RouterView />
+  <el-config-provider :locale="listLocale[locale?.value]">
+    <RouterView />
+  </el-config-provider>
 </template>

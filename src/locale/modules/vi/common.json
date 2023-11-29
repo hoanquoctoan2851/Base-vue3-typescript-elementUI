@@ -1,8 +1,8 @@
 {
-    "lang": {
-        "country": {
-            "vietnames": "Việt Nam",
-            "english": "Anh"
-        }
+  "lang": {
+    "country": {
+      "vietnames": "Việt Nam",
+      "english": "Anh"
     }
+  }
 }

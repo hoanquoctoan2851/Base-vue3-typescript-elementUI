@@ -1,30 +1,33 @@
 import { createI18n } from 'vue-i18n';
 import { locale_en } from './modules/en';
 import { locale_vi } from './modules/vi';
+import { localeStoresWithOut } from '@/stores/modules/localeStores';
 import type { LocaleItemType, LocaleType } from '@/locale/model';
-import type { App } from 'vue';
+import { type App } from 'vue';
 
 export const LIST_SELECT_LOCALE: LocaleItemType[] = [
   {
-    value: 'vi-VN',
-    label: 'common.lang.country.vietnames'
+    value: 'vi',
+    label: 'common.lang.country.vietnames',
   },
   {
-    value: 'en-US',
-    label: 'common.lang.country.english'
-  }
+    value: 'en',
+    label: 'common.lang.country.english',
+  },
 ];
 
 export async function setupI18n(app: App) {
+  const locales = localeStoresWithOut();
   const i18n = createI18n<[typeof locale_en], LocaleType>({
-    locale: 'vi-VN',
+    locale: locales.getLocale?.value,
     legacy: false,
     allowComposition: true,
-    fallbackLocale: 'vi-VN',
+    fallbackLocale: 'vi',
     messages: {
-      'en-US': locale_en,
-      'vi-VN': locale_vi
-    }
+      en: locale_en,
+      vi: locale_vi,
+    },
   });
+
   app.use(i18n);
 }

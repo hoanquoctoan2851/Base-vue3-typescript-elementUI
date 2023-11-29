@@ -6,9 +6,12 @@
       </el-button>
       <template #dropdown>
         <el-dropdown-menu>
-          <el-dropdown-item v-for="item in LIST_SELECT_LOCALE" :key="item.value" @click="handleChangeLocale(item)">{{
-            $t(`${item.label}`)
-          }}</el-dropdown-item>
+          <el-dropdown-item
+            v-for="item in LIST_SELECT_LOCALE"
+            :key="item.value"
+            @click="handleChangeLocale(item)"
+            >{{ $t(`${item.label}`) }}</el-dropdown-item
+          >
         </el-dropdown-menu>
       </template>
     </el-dropdown>

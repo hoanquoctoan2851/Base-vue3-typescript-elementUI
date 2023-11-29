@@ -7,8 +7,8 @@ const service = axios.create({
   baseURL: '',
   headers: {
     'Accept-Language': 'vi',
-    'Content-Type': 'application/json'
-  }
+    'Content-Type': 'application/json',
+  },
 });
 
 service.interceptors.request.use(
@@ -52,7 +52,7 @@ export function requestHttp(requestData: CustomRequestData) {
     data,
     params,
     withCredentials,
-    timeout: timeout || 10 * 1000
+    timeout: timeout || 10 * 1000,
   });
 }
 
